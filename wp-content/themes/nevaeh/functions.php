@@ -104,9 +104,7 @@ add_action( 'widgets_init', 'nevaeh_widgets_init' );
 function nevaeh_scripts() {
 	wp_enqueue_style( 'nevaeh-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'nevaeh-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'nevaeh-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	// wp_enqueue_script( 'nevaeh-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -114,27 +112,38 @@ function nevaeh_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'nevaeh_scripts' );
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
+// /**
+//  * Implement the Custom Header feature.
+//  */
+// require get_template_directory() . '/inc/custom-header.php';
+//
+// /**
+//  * Custom template tags for this theme.
+//  */
+// require get_template_directory() . '/inc/template-tags.php';
+//
+// /**
+//  * Custom functions that act independently of the theme templates.
+//  */
+// require get_template_directory() . '/inc/extras.php';
+//
+// /**
+//  * Customizer additions.
+//  */
+// require get_template_directory() . '/inc/customizer.php';
+//
+// /**
+//  * Load Jetpack compatibility file.
+//  */
+// require get_template_directory() . '/inc/jetpack.php';
 
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
 
-/**
- * Custom functions that act independently of the theme templates.
- */
-require get_template_directory() . '/inc/extras.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
+add_theme_support('soil-clean-up');
+add_theme_support('soil-disable-asset-versioning');
+add_theme_support('soil-disable-trackbacks');
+add_theme_support('soil-google-analytics', 'UA-XXXXX-Y');
+add_theme_support('soil-jquery-cdn');
+add_theme_support('soil-js-to-footer');
+add_theme_support('soil-nav-walker');
+add_theme_support('soil-nice-search');
+add_theme_support('soil-relative-urls');
