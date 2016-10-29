@@ -104,13 +104,138 @@ add_action( 'widgets_init', 'nevaeh_widgets_init' );
 function nevaeh_scripts() {
 	wp_enqueue_style( 'nevaeh-style', get_stylesheet_uri() );
 
-	// wp_enqueue_script( 'nevaeh-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'nevaeh-slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), '20151215', true );
+
+	wp_enqueue_script( 'nevaeh-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'nevaeh_scripts' );
+
+
+
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array (
+	'key' => 'group_57e77178f37e2',
+	'title' => 'Citati',
+	'fields' => array (
+		array (
+			'key' => 'field_57e771a668f2f',
+			'label' => 'Citat',
+			'name' => 'c',
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => '',
+			'min' => 0,
+			'max' => '',
+			'layout' => 'table',
+			'button_label' => 'Dodaj Citat',
+			'sub_fields' => array (
+				array (
+					'key' => 'field_57e771c268f30',
+					'label' => 'Tekst Citata',
+					'name' => 'ct',
+					'type' => 'textarea',
+					'instructions' => 'Upiši tekst citata (bez navodnika).',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array (
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => 'Sanjaj kao da ćeš živeti zauvek. Živi kao da ćeš danas umreti.',
+					'maxlength' => '',
+					'rows' => 3,
+					'new_lines' => '',
+					'readonly' => 0,
+					'disabled' => 0,
+				),
+				array (
+					'key' => 'field_57e772a468f31',
+					'label' => 'Autor Citata',
+					'name' => 'ca',
+					'type' => 'text',
+					'instructions' => 'Upiši ime autora citata.',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array (
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => 'Ivo Andrić',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+					'readonly' => 0,
+					'disabled' => 0,
+				),
+				array (
+					'key' => 'field_5815049cf265a',
+					'label' => 'Slika',
+					'name' => 'cs',
+					'type' => 'image',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array (
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'return_format' => 'url',
+					'preview_size' => 'thumbnail',
+					'library' => 'all',
+					'min_width' => '',
+					'min_height' => '',
+					'min_size' => '',
+					'max_width' => '',
+					'max_height' => '',
+					'max_size' => '',
+					'mime_types' => '',
+				),
+			),
+		),
+	),
+	'location' => array (
+		array (
+			array (
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'page',
+			),
+			array (
+				'param' => 'page',
+				'operator' => '==',
+				'value' => '6',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 1,
+	'description' => '',
+));
+
+endif;
 
 // /**
 //  * Implement the Custom Header feature.

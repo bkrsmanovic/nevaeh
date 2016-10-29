@@ -26,6 +26,28 @@
 
 	<div id="content" class="site-content">
 
+		<section id="quote-section" class="quote-section">
+			<?php if( have_rows('c') ): ?>
+				<div class="quote-wrap">
+					<?php while( have_rows('c') ): the_row();
+						$citat = get_sub_field('ct');
+						$author = get_sub_field('ca');
+						$image = get_sub_field('cs');
+					?>
+						<div class="qt-slide" <?php echo 'style="background: url(' . $image . ') no-repeat center;"'; ?>  >
+							<?php if( $citat ): ?>
+								<span>"<?php echo $citat; ?>"</span><br />
+							<?php endif; ?>
+
+							<?php if( $author ): ?>
+								<p>-<?php echo $author ?></p>
+							<?php endif; ?>
+						</div>
+					<?php endwhile; ?>
+				</div>
+			<?php endif; ?>
+		</section>
+
 
 
 
